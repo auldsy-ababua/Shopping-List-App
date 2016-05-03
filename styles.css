@@ -1,12 +1,17 @@
 .masthead-title {
     text-align: center;
 }
-.text input {
+#list-name-input, .new-list, #list-item-input, .new-item-button {
     width: 100%;
 }
-.new-list {
-    width: 100%;
+.list-header {
+    justify-content: space-between;
+    border: solid black 2px;
+    display: inline-block;
 }
-.lists li {
 
+.back-button, h6 {
+    width: 50%;
+    text-align: center;
+    display: inline-block;
 }
