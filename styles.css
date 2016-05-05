@@ -1,17 +1,30 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
 .masthead-title {
     text-align: center;
+
 }
 #list-name-input, .new-list, #list-item-input, .new-item-button {
     width: 100%;
 }
 .list-header {
     justify-content: space-between;
-    border: solid black 2px;
+    border-bottom: solid black 2px;
     display: inline-block;
+    width: 100%;
 }
 
 .back-button, h6 {
-    width: 50%;
+    width: 49%;
     text-align: center;
     display: inline-block;
+    margin-top: 0px;
+}
+
+.new-list, .back-button, .new-item-button {
+    background-color: mediumaquamarine;
+    color: white;
+    border: none;
 }
