@@ -4,14 +4,18 @@ var newListCreate = function() {
     $("#list-name-input").val('');
 };
 
-$(".new-list").click(function() {
-    newListCreate();
+$(".new-list-button").click(function() {
+    if($("#list-name-input").val().trim()) {
+        newListCreate();
+    }
 });
 
 $('#list-name-input').keypress(function(e) {
     var key = e.which;
     if(key == 13) {
-        newListCreate();
+        if($("#list-name-input").val().trim()) {
+            newListCreate();
+        }
     }
 });
 

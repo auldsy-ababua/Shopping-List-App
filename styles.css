@@ -6,7 +6,7 @@ html {
     text-align: center;
 
 }
-#list-name-input, .new-list, #list-item-input, .new-item-button {
+#list-name-input, .new-list-button, #list-item-input, .new-item-button {
     width: 100%;
 }
 .list-header {
@@ -23,7 +23,7 @@ html {
     margin-top: 0px;
 }
 
-.new-list, .back-button, .new-item-button {
+.new-list-button, .back-button, .new-item-button {
     background-color: mediumaquamarine;
     color: white;
     border: none;
