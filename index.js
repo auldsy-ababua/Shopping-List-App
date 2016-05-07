@@ -1,31 +1,37 @@
-var newListCreate = function() {
-    var newList = $("#list-name-input").val();
-    $(".collection").append("<li class='collection-item'>" + newList + "</li>")
-    $("#list-name-input").val('');
-};
+var myFirebaseRef = new Firebase("https://aulds-shopping-list-app.firebaseio.com/");
 
 $(".new-list-button").click(function() {
-    if($("#list-name-input").val().trim()) {
-        newListCreate();
+    var fieldValue = $("#list-name-input").val();
+    if (fieldValue.trim()) {
+        save(fieldValue);
     }
 });
 
 $('#list-name-input').keypress(function(e) {
     var key = e.which;
     if(key == 13) {
-        if($("#list-name-input").val().trim()) {
-            newListCreate();
+        var fieldValue = $("#list-name-input").val();
+        if (fieldValue.trim()) {
+            save(fieldValue);
         }
     }
 });
 
-function save() {
-    var fieldValue = document.getElementById('#list-name-input').value;
-    localStorage.setItem('text', fieldValue);
+function save(value) {
+    $(".collection").append("<li class='collection-item'>" + value + "</li>")
+    myFirebaseRef.push(value);
+    $("#list-name-input").val('');
 }
 function load() {
-    var storedValue = localStorage.getItem('text');
-    if(storedValue){
-        document.getElementById('#list-name-input').value = storedValue;
-    }
+    myFirebaseRef.on("value", function(snapshot) {
+        snapshot.forEach(function(item) {
+            $(".collection").append("<li class='collection-item'>" + item.val() + "<button value='+ item.key() +'>Delete Item</button></li>")
+
+        });
+    });
+};
+load();
+
+function deleteitem(id) {
+    console.log(id);
 }
