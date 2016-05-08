@@ -34,9 +34,8 @@ $('body').delegate('.deleteButton', 'click', function () {
 
 function save(value) {
     $(".collection").append("<li class='collection-item'>" + value + "</li>")
-    myFirebaseRef.push(value).then(function(item){
-        console.log(item);
-    });
+    var pushItem = myFirebaseRef.push(value);
+    console.log(pushItem);
     $("#list-name-input").val('');
 };
 
