@@ -21,7 +21,7 @@ $('body').delegate('.deleteButton', 'click', function () {
     var parent = $(this).parent();
     console.log(parent);
     var ref = new Firebase('https://aulds-shopping-list-app.firebaseio.com/' + $(this).attr('value'));
-    ref.remove(function(error) {
+    ref.remove(function (error) {
         if (error) {
             console.log('Synchronization failed');
         } else {
@@ -33,10 +33,10 @@ $('body').delegate('.deleteButton', 'click', function () {
 
 
 function save(value) {
+    var pushItem = myFirebaseRef.push(value);
+    var id = pushItem.key();
+
     $(".collection").append("<li class='collection-item'>" + value + "</li>")
-    myFirebaseRef.push(value).then(function(item){
-        console.log(item);
-    });
     $("#list-name-input").val('');
 };
 
